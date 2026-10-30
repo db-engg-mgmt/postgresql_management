@@ -1,0 +1,7 @@
+*.log
+*.txt
+!requirements.txt
+.DS_Store
+.idea/
+.vscode/
+pg_health_*.txt
