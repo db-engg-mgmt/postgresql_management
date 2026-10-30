@@ -1,0 +1,28 @@
+-- ~/.psqlrc I use on DBA hosts. Copy, then fix the path in the :dba_* shortcuts.
+
+\set QUIET 1
+\pset null '(null)'
+\pset linestyle unicode
+\pset border 2
+\x auto
+\set HISTSIZE 5000
+\set HISTCONTROL ignoredups
+\set COMP_KEYWORD_CASE upper
+\set ON_ERROR_ROLLBACK interactive
+\set PROMPT1 '%[%033[1m%]%n@%M:%>/%/%R%#%x%[%033[0m%] '
+\timing on
+
+\set dba '/opt/dba/postgresql_management'
+
+-- shortcuts, run as  :act  :locks  :waits  etc.
+\set act    '\\i ' :dba '/monitoring/activity.sql'
+\set long   '\\i ' :dba '/monitoring/long_running.sql'
+\set waits  '\\i ' :dba '/monitoring/wait_events.sql'
+\set locks  '\\i ' :dba '/locks/blocking_tree.sql'
+\set xid    '\\i ' :dba '/vacuum/xid_wraparound.sql'
+\set xmin   '\\i ' :dba '/vacuum/xmin_horizon.sql'
+\set topq   '\\i ' :dba '/performance/top_queries.sql'
+\set repl   '\\i ' :dba '/replication/primary_status.sql'
+\set sizes  '\\i ' :dba '/admin/sizes.sql'
+
+\unset QUIET
